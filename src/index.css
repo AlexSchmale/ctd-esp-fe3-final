@@ -12,12 +12,20 @@ code {
     monospace;
 }
 .favButton{
+  font-size: 1.2rem;
   background-color: rgba(136, 136, 136, 0.116);
+  margin-bottom: 8px;
   padding: 10px;
   border: none;
   width: 100%;
   cursor: pointer;
 }
+
+/* .homeMain{
+  display: flex;
+  margin: auto;
+  width: 86%;
+} */
 
 h1{
   text-align: center;
@@ -76,22 +84,43 @@ form{
   flex-direction: column;
   align-items: center;
   width: 200px;
+  height: 350px;
   padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: 0.2s;
 }
 
 .card:hover{
   border: 0.5px solid rgb(206, 217, 142);
 }
 
+
+.profile{
+  width: 120px;
+  border-radius: 50%;
+}
+
 .card-grid{
   display: flex;
   justify-content: space-evenly;
-  gap: 1rem;
+  /* gap: rem; */
+  gap: 9px;
   width: 90vw;
   height: auto;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin:auto;
+  margin-top: 40px;
+  width: 60%;
+}
+.buttonCard{
+  margin-top: 10px;
+  width: 350px;
+}
+.buttonCard:hover{
+  transform: scale(0.98);
+  transition: 0.3s;
 }
 
 table {
@@ -119,4 +148,29 @@ tr:nth-child(even) {
 }
 .dark > a {
   color: white;
+}
+
+.detail{
+  width: 350px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 40px;
+  border-radius: 4px;
+  background-image: url("../public/images/card.jpg");
+}
+.detail > img {
+  border-radius: 4px;
+}
+.detail > div{
+  margin-right: 12px;
+}
+h5 {
+  color: white;
+}
+h5 > span{
+  color: grey;
+  font-weight: 400;
+  font-size: 13px;
 }
