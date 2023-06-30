@@ -1,16 +1,61 @@
 body {
   margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* #root{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+} */
+
+/* #root{
+  height: 100%;
+} */
+/* :root{
+
+  --main-color       : #1083D6;
+  --title-color      : #2A3B47;
+  --text-color       : #697477;
+  --light-text-color : #A0A7AC;
+  --border-color     : #EFF3F5;
+  --container-color  : #FFFFFF;
+  --body-color       : #FBFBFE;
+
+  --main-color       : #52A5E0;
+  --title-color      : #EFF3F5;
+  --text-color       : #C8CDD0;
+  --light-text-color : #A0A7AC;
+  --border-color     : #2A3B47;
+  --container-color  : #212E36;
+  --body-color       : #192229;*
+}  */
+
+#light{
+  background-color: #FBFBFE;
+  height: 100%;
+  color: #697477;
+}
+#dark{
+  background-color: #192229;
+  height: 100%;
+  color: #C8CDD0;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .favButton{
   font-size: 1.2rem;
   background-color: rgba(136, 136, 136, 0.116);
@@ -21,68 +66,83 @@ code {
   cursor: pointer;
 }
 
-/* .homeMain{
-  display: flex;
-  margin: auto;
-  width: 86%;
-} */
 
 h1{
   text-align: center;
 }
 
-nav{
-  display: flex;
-  width: 80vw;
-  justify-content: flex-start;
+/* -------------------------------------------- NAV---------------------------------------------------------------------------------- */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  width:100%;
   padding: 1rem;
+  font-size: 18px;
+}
+.navRoutes{
+  margin-right: 70px;
+}
+.navRoutes button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-a{
-  color: #000;
+.navRoutes button:hover{
+  transform: scale(0.9);
+}
+
+.nav img{
+  width: 250px;
+}
+.navRoutes button{
+  font-size: 1.3rem;
+}
+
+.navRoutes a{
+  
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
 }
-a:hover{
-  color: rgb(136, 136, 136);
-} 
 
-footer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
+#light a{
+  color:#697477;
 }
 
-footer > img{
-  width: 200px;
-  margin: 0;
-}
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
+#light .navRoutes a:hover{
+  color: #212E36;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
+#light .nav{
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #EFF3F5;
+  font-weight: 600;
 }
 
+#dark a{
+  color:#C8CDD0;
+}
+
+#dark .navRoutes a:hover{
+  color: white;
+}
+
+#dark .nav{
+  background-color: #212E36;
+  border-bottom: 1px solid #2A3B47;
+  font-weight: 600;
+}
+
+/* -------CARDS------  */
 .card{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
   width: 200px;
   height: 350px;
   padding: 0.5rem 0.5rem 0 0.5rem;
@@ -92,8 +152,43 @@ form{
   transition: 0.2s;
 }
 
+.card button:hover{
+  transform: scale(0.98);
+  transition: 0.3s;
+}
+
+.card a button:hover{
+  transform: scale(0.98);
+  transition: 0.3s;
+}
+
+#light .card{
+  border: .5px solid #EFF3F5;
+}
+
+#light .card h4{
+  color: #2A3B47;
+}
+
+#light p{
+  color: #697477;
+}
+
+#dark .card{
+  background-color: #212E36;
+  border: 1px solid #2A3B47;
+}
+
+#dark .card h4{
+  color: #EFF3F5
+}
+
+#dark p{
+  color: #EFF3F5;
+}
+
 .card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+  transform: scale(0.98);
 }
 
 
@@ -105,72 +200,231 @@ form{
 .card-grid{
   display: flex;
   justify-content: space-evenly;
-  /* gap: rem; */
   gap: 9px;
   width: 90vw;
   height: auto;
   flex-wrap: wrap;
   margin:auto;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 60%;
 }
+
 .buttonCard{
   margin-top: 10px;
   width: 350px;
 }
+
 .buttonCard:hover{
   transform: scale(0.98);
   transition: 0.3s;
 }
 
-table {
- border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
 
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.dark{
-  background-color: #12121296;
-  color: white;
-}
-.dark > a {
-  color: white;
-}
-
+/* ---------------------------------------------------------DETAIL-------------------------------------------- */
 .detail{
   width: 350px;
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   margin-top: 40px;
+  
   border-radius: 4px;
-  background-image: url("../public/images/card.jpg");
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .detail > img {
-  border-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .detail > div{
   margin-right: 12px;
 }
-h5 {
-  color: white;
+#light .detail{
+  border: .5px solid #EFF3F5;
+  border-left: 6px solid #52A5E0;
 }
-h5 > span{
-  color: grey;
-  font-weight: 400;
-  font-size: 13px;
+#light .detail h5{
+  color: #2A3B47;
 }
+#light .detail span{
+  color: #697477;
+}
+#dark .detail{
+  background-color: #212E36;
+  border: 1px solid #2A3B47;
+  border-left: 6px solid #52A5E0;
+  
+}
+#dark .detail h5{
+  color: #EFF3F5;
+  font-size: 14px;
+}
+#dark .detail span{
+  color: #9ba8b0;
+}
+
+
+.contact{
+  text-align: center;
+}
+#light .contact{
+  background-color: #FBFBFE;
+}
+
+#dark .contact{
+  background-color: #192229;
+  
+}
+.contact h2{
+  font-size: 40px;
+}
+.contact p{
+  font-size: 18px;
+}
+
+
+/* ---------------------------------------------------FORMULARIO-------------------------------- */
+
+.form-container{
+  height: 60vh;
+  margin-bottom: 10px;
+}
+
+
+
+.form{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+  width: 400px;
+  height: 200px;
+  gap: 10px;
+  padding: 20px;
+}
+
+.form input{
+  height: 35px;
+  border-radius: 4px;
+  border: 1px solid #EFF3F5;
+  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#light .form input{
+  color: #697477 ;
+}
+
+#dark .form input{
+  font-weight: bold;
+  background-color: #212E36;
+  /* box-shadow: rgba(212, 207, 207, 0.2) 0px 2px 8px 0px; */
+  border: 1px solid #2A3B47;
+  color: #EFF3F5 ;
+}
+
+/* #dark .form input{
+  color: #EFF3F5;
+  font-weight: bold;
+  background-color: rgba(136, 136, 136, 0.116);
+  margin-bottom: 8px;
+  border: none;
+  cursor: pointer;
+} */
+
+.form input:hover{
+  transform: scale(0.98);
+  transition: 0.3s;
+}
+
+#light .form button{
+  color: #697477;
+}
+
+#dark .form button{
+  color: #EFF3F5;
+}
+
+.form button{
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #52A5E0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 4px;
+  height: 40px;
+}
+
+#light .form button{
+  color: #EFF3F5;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  
+  border: .5px solid #EFF3F5;
+}
+
+#dark .form button{
+  color: #EFF3F5;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 4px;
+  border: 1px solid #2A3B47;
+}
+
+.form button:hover{
+  transform: scale(0.98);
+  transition: 0.3s;
+}
+
+.form-container .form{
+  width: 300px;
+  border-radius: 4px;
+}
+
+
+#light .form-container .form{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: .5px solid #EFF3F5;
+}
+
+#dark .form-container .form{
+  box-shadow: #2A3B47(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid #2A3B47;
+  background-color: #212E36;
+}
+
+#light .form input{
+  border: .5px solid #EFF3F5;
+}
+#dark .form input{
+  border: .5px solid #2A3B47;
+  box-shadow: #6f767b(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+/* -------------------------------------------------------------------------- */
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+footer > img{
+  width: 200px;
+  margin: 0;
+}
+footer > p{
+  margin: 0;
+  padding-top: 0.7rem;
+}
+#light footer{
+  background-color: #FFFFFF;
+  border-top: .5px solid #EFF3F5;
+}
+
+
+#dark footer{
+  background-color: #212E36;
+  border-top: .5px solid #2A3B47;
+}
+

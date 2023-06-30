@@ -7,6 +7,7 @@ import Context from './Components/utils/Context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Context>
     <BrowserRouter>

@@ -9,12 +9,13 @@ import { useGlobalStates } from '../Components/utils/Context'
 const Detail = () => {
  
   const params = useParams()
-  const {specificDoctor, setSpecificDoctor,dispatch} = useGlobalStates()
+
+  const {state, dispatch} = useGlobalStates()
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
-    dispatch({type:'ADD_FAV', payload:specificDoctor})
+    dispatch({type:'ADD_FAV', payload:state.specificDoctor})
     
   }
 
@@ -22,19 +23,19 @@ const Detail = () => {
 
   useEffect(()=>{
     axios.get(url)
-    .then(res =>  setSpecificDoctor(res.data))
-  },[])
+    .then(res =>  dispatch({type:'GET_DETAIL', payload:res.data}))
+  }, [])
 
   return (
-    <>
+    <div style={{height:'60vh'}}>
       <div className='detail'>
         <img style={{width:'100px', height:'100px'}} src="/images/doctor.jpg" alt="" />
         <div>
-          <h5>Name: <span>{specificDoctor?.name}</span></h5>
-          <h5>Username: <span>{specificDoctor?.username}</span></h5>
-          <h5>Email: <span>{specificDoctor?.email}</span></h5>
-          <h5>Phone: <span>{specificDoctor?.phone}</span></h5>
-          <h5>website: <span>{specificDoctor?.website}</span></h5>
+          <h5>Name: <span>{state.specificDoctor.name}</span></h5>
+          <h5>Username: <span>{state.specificDoctor.username}</span></h5>
+          <h5>Email: <span>{state.specificDoctor.email}</span></h5>
+          <h5>Phone: <span>{state.specificDoctor.phone}</span></h5>
+          <h5>website: <span>{state.specificDoctor.website}</span></h5>
         </div>
       </div>
       <div style={{display:'flex', justifyContent:'center'}}>
@@ -43,7 +44,7 @@ const Detail = () => {
       
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-    </>
+    </div>
   )
 }
 
